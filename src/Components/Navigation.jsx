@@ -1,5 +1,6 @@
 import React from 'react'
 import List from './List';
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 function Navigation() {
   return (
@@ -103,7 +104,7 @@ function Navigation() {
             </div>
             <div class="flex items-center">
               <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md mr-4">
-                Connect Wallet
+               <WalletMultiButton />
               </button>
               <div class="relative">
                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
