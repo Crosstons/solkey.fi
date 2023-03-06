@@ -1,7 +1,28 @@
+<<<<<<< HEAD
 import React from 'react'
 
+=======
+import React, { useState } from 'react'
+import List from './List';
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import Create from './Create';
+>>>>>>> bb4e50f5258362a4f564a1762f0fa602b7160433
 
 function Navigation() {
+
+   const [browse, setBrowse] = useState(true);
+   const [create, setCreate] = useState(false);
+
+   const onBrowse = () => {
+      setBrowse(true);
+      setCreate(false);
+   }
+
+   const onCreate = () => {
+      setBrowse(false);
+      setCreate(true);
+   }
+
   return (
     
         <div class="">
@@ -23,15 +44,15 @@ function Navigation() {
                   </a>
                </li>
                <li>
-                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-purple-100 ">
+                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-purple-100 " onClick={onBrowse}>
                      <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                     <span class=" ml-3 whitespace-nowrap">Browse Clustors</span>
+                     <span class=" ml-3 whitespace-nowrap">Browse Clusters</span>
                   </a>
                </li>
                <li>
-                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-purple-100">
+                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-purple-100" onClick={onCreate}>
                      <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
-                     <span class=" ml-3 whitespace-nowrap">Create Clustors</span>
+                     <span class=" ml-3 whitespace-nowrap">Create Cluster</span>
                   </a>
                </li>
                <li>
@@ -87,7 +108,43 @@ function Navigation() {
             </ul>
          </div>
       </aside>
+<<<<<<< HEAD
         
+=======
+      
+      <div class="p-4 sm:ml-64 ">
+         
+      </div>
+      
+      
+        <div class="flex flex-col flex-grow p-6 w-full">
+          <div class="flex items-center justify-between bg-white py-4 px-6 border-b">
+            <div class="flex items-center">
+              <button class="text-gray-600 focus:outline-none md:hidden">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+              </button>
+              <h1 class="text-lg font-medium ml-4">
+                  { browse ? "Browse Clusters" : ""}
+                  {create ? "Create Cluster" : ""}
+              </h1>
+            </div>
+            <div class="flex items-center">
+              <button class=" text-white px-4 py-2 rounded-md mr-4">
+               <WalletMultiButton />
+              </button>
+              <div class="relative">
+                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                  <img class="h-8 w-8 rounded-full object-cover" src="https://source.unsplash.com/user/erondu/1600x900" alt="Your avatar"/>
+                </button>
+                <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
+                </div>
+              </div>
+            </div>
+          </div>
+          { browse ? <List /> : ""}
+          { create ? <Create /> : ""}
+        </div>
+>>>>>>> bb4e50f5258362a4f564a1762f0fa602b7160433
         
       </div>
       
