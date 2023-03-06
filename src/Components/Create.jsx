@@ -2,11 +2,11 @@ import React from 'react'
 
 function Create() {
   return (
-    <div className="flex justify-center">
-<div class="flex justify-center m-5">
-</div>
-
-<div tabindex="-1" aria-hidden="true" class=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+<div className="ml-56">
+        <section class="text-gray-600 body-font">
+  <div class="container px-auto py-10 mx-auto">
+    <div class="flex flex-wrap -m-4"></div>
+<div tabindex="-1" aria-hidden="true" class=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center  md:inset-0 h-modal md:h-full w-full">
     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
 
         <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
@@ -63,6 +63,8 @@ function Create() {
         </div>
     </div>
 </div>
+    </div>
+    </section>
     </div>
   )
 }
