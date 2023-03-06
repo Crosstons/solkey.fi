@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import React from 'react'
 
-=======
 import React, { useState } from 'react'
 import List from './List';
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Create from './Create';
->>>>>>> bb4e50f5258362a4f564a1762f0fa602b7160433
 
 function Navigation() {
 
@@ -108,9 +104,6 @@ function Navigation() {
             </ul>
          </div>
       </aside>
-<<<<<<< HEAD
-        
-=======
       
       <div class="p-4 sm:ml-64 ">
          
@@ -144,7 +137,6 @@ function Navigation() {
           { browse ? <List /> : ""}
           { create ? <Create /> : ""}
         </div>
->>>>>>> bb4e50f5258362a4f564a1762f0fa602b7160433
         
       </div>
       
