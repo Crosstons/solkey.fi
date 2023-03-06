@@ -2,7 +2,7 @@ import React from 'react'
 
 function List() {
   return (
-    <div className="ml-56">
+    <div>
         <section class="text-gray-600 body-font">
   <div class="container px-auto py-10 mx-auto">
     <div class="flex flex-wrap -m-4">

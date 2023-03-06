@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react'
 import List from './List';
+import Flash from './Flash';
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Create from './Create';
 
@@ -8,20 +8,29 @@ function Navigation() {
 
    const [browse, setBrowse] = useState(true);
    const [create, setCreate] = useState(false);
+   const [flash, setFlash] = useState(false);
 
    const onBrowse = () => {
       setBrowse(true);
       setCreate(false);
+      setFlash(false);
    }
 
    const onCreate = () => {
       setBrowse(false);
       setCreate(true);
+      setFlash(false);
+   }
+
+   const onFlash = () => {
+      setBrowse(false);
+      setCreate(false);
+      setFlash(true);
    }
 
   return (
-    
-        <div class="">
+    <div>
+        <div class="flex h-screen bg-gray-200">
       
       <button data-drawer-target="separator-sidebar" data-drawer-toggle="separator-sidebar" aria-controls="separator-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
          <span class="sr-only">Open sidebar</span>
@@ -52,7 +61,7 @@ function Navigation() {
                   </a>
                </li>
                <li>
-                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-purple-100 ">
+                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-purple-100 " onClick={onFlash}>
                      <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                      <span class=" ml-3 whitespace-nowrap">Flash Loans</span>
                   </a>
@@ -119,6 +128,7 @@ function Navigation() {
               <h1 class="text-lg font-medium ml-4">
                   { browse ? "Browse Clusters" : ""}
                   {create ? "Create Cluster" : ""}
+                  {flash ? "Flash Loan" : ""}
               </h1>
             </div>
             <div class="flex items-center">
@@ -136,12 +146,12 @@ function Navigation() {
           </div>
           { browse ? <List /> : ""}
           { create ? <Create /> : ""}
+          { flash ? <Flash /> : ""}
         </div>
         
       </div>
       
-      
-   
+    </div>
    
 
     

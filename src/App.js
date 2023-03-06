@@ -7,9 +7,6 @@ import { useMemo } from 'react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Create from './Components/Create';
-import List from './Components/List';
-
 import './App.css';
 require('@solana/wallet-adapter-react-ui/styles.css');
 
