@@ -147,7 +147,7 @@ function Navigation() {
           </div>
           { browse ? <List /> : ""}
           { create ? <Create /> : ""}
-          { flash ? <Clustor /> : ""}
+          { flash ? <Flash /> : ""}
         </div>
         
       </div>

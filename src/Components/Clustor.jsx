@@ -10,41 +10,61 @@ function Clustor() {
         <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
             <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5">
                 <h3 class="text-lg font-semibold text-gray-900">
-                  Clustur Name
+                  Clustur Name Supply : 69
                 </h3>
             </div>
-            
+
             <form action="#">
                 <div class="grid gap-4 mb-4 sm:grid-cols-1">
+
                     <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
-                        <input type="text" id="disabled-input" aria-label="disabled input" class=" bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="Disabled input" disabled/>
-                        <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Add this token address to your respective wallets</p>
+                        <label for="name" class="block mb-2 text-lg font-medium text-gray-900">Token List</label>
+                        <input type="text" id="disabled-input" aria-label="disabled input" class=" bg-gray-100 border border-gray-300 text-gray-900 text-md mb-6 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="Address : 3" disabled/>
+                        <input type="text" id="disabled-input" aria-label="disabled input" class=" bg-gray-100 border border-gray-300 text-gray-900 text-md mb-6 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="Address : 3" disabled/>
+                        <input type="text" id="disabled-input" aria-label="disabled input" class=" bg-gray-100 border border-gray-300 text-gray-900 text-md mb-6 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="Address : 3" disabled/>
                     </div>
-                    <div>
-                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900">Brand</label>
-                        <input type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5" placeholder="Product brand" required=""/>
+                    <div className="">
+                        <div className="flex justify-start">
+                        <label for="price" class="block mb-2 ml-2 text-sm font-medium text-gray-900">Amount</label>
+                        </div>
+                        <input type="number" name="price" id="price" class="w-1/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block item-center p-2.5" placeholder="$2999" required=""/>
                     </div>
-                    <div>
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Price</label>
-                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5" placeholder="$2999" required=""/>
-                    </div>
-                    <div>
-                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900">Category</label>
-                        <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5">
-                            <option selected="">Select category</option>
-                            <option value="TV">TV/Monitors</option>
-                            <option value="PC">PC</option>
-                            <option value="GA">Gaming/Console</option>
-                            <option value="PH">Phones</option>
-                        </select>
-                    </div>
-                    <div class="sm:col-span-2"></div>
+                   
                 </div>
-                <button type="submit" class="text-white inline-flex items-center bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                    <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                    Add new product
-                </button>
+                <div class="flex items-center justify-center">
+  <div
+    class="inline-flex shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+    role="group">
+    <button
+      type="button"
+      class="inline-block rounded-l bg-purple-700 px-6 pt-2.5 pb-2 text-xs font-medium leading-normal text-white transition duration-150 ease-in-out hover:bg-purple-800 focus:bg-purple-600 focus:outline-none focus:ring-0 active:bg-purple-700"
+      data-te-ripple-init
+      data-te-ripple-color="light">
+      Faucet
+    </button>
+    <button
+      type="button"
+      class="inline-block bg-purple-700 px-6 pt-2.5 pb-2 text-xs font-medium leading-normal text-white transition duration-150 ease-in-out hover:bg-purple-800 focus:bg-purple-600 focus:outline-none focus:ring-0 active:bg-purple-700"
+      data-te-ripple-init
+      data-te-ripple-color="light">
+      TokenAccounts
+    </button>
+        <button
+      type="button"
+      class="inline-block bg-purple-700 px-6 pt-2.5 pb-2 text-xs font-medium leading-normal text-white transition duration-150 ease-in-out hover:bg-purple-800 focus:bg-purple-600 focus:outline-none focus:ring-0 active:bg-purple-700"
+      data-te-ripple-init
+      data-te-ripple-color="light">
+      Issue
+    </button>
+    <button
+      type="button"
+      class="inline-block rounded-r bg-purple-700 px-6 pt-2.5 pb-2 text-xs font-medium leading-normal text-white transition duration-150 ease-in-out hover:bg-purple-800 focus:bg-purple-600 focus:outline-none focus:ring-0 active:bg-purple-700"
+      data-te-ripple-init
+      data-te-ripple-color="light">
+      Redeem
+    </button>
+  </div>
+</div>
             </form>
         </div>
     </div>

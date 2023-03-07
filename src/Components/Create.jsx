@@ -30,7 +30,7 @@ function Create() {
                 </div>
                 <div>
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900">Symbol</label>
-                        <input type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Give Cluster a Symbol" required=""/>
+                        <input type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5" placeholder="Give Cluster a Symbol" required=""/>
                     </div>
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Token - 1</label>
@@ -38,7 +38,7 @@ function Create() {
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900 ">Amount</label>
-                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="$2999" required=""/>
+                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5" placeholder="$2999" required=""/>
                     </div>
                     <div>
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Token - 2</label>
@@ -46,7 +46,7 @@ function Create() {
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Amount</label>
-                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="$2999" required=""/>
+                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5" placeholder="$2999" required=""/>
                     </div>
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Token - 3</label>
@@ -54,7 +54,7 @@ function Create() {
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Amount</label>
-                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="$2999" required=""/>
+                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5" placeholder="$2999" required=""/>
                     </div>
                     <div class="sm:col-span-2">
                         </div>
