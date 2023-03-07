@@ -1,0 +1,320 @@
+{
+  "version": "0.1.0",
+  "name": "key_fi",
+  "instructions": [
+    {
+      "name": "createVault",
+      "accounts": [
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "unlockTime",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "insureNft",
+      "accounts": [
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "vmint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "insureTokens",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "claimVault1",
+      "accounts": [
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokens1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "claimTokens1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "claimVault2",
+      "accounts": [
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokens1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokens2",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "claimTokens1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "claimTokens2",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "claimVault3",
+      "accounts": [
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokens1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokens2",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokens3",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "claimTokens1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "claimTokens2",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "claimTokens3",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Vault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "nftMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "vmints",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "unlockTime",
+            "type": "i64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NewMintError",
+      "msg": "Max Number of Token Mints for this Vault has been reached!!"
+    },
+    {
+      "code": 6001,
+      "name": "VMintsLenError",
+      "msg": "Incorrect Call due to Token Mints"
+    },
+    {
+      "code": 6002,
+      "name": "UnlockError",
+      "msg": "The Unlock Time has not arrived yet"
+    }
+  ],
+  "metadata": {
+    "address": "DfBT3PCjJEJXu8FYwFKvHktxQAL7LRQTnLsyuCTRidYn"
+  }
+}
