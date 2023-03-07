@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import List from './List';
 import Flash from './Flash';
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";

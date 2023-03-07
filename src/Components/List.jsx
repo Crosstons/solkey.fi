@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { getClusters } from './firestore/basic';
 
 function List() {
+
+  const [clusters, setClusters] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const raw_data = await getClusters();
+      setClusters(raw_data);
+    })();
+  }, []);
+
   return (
     <div>
         <section class="text-gray-600 body-font">
