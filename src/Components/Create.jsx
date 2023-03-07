@@ -16,6 +16,9 @@ function Create() {
                 <h3 class="text-lg font-semibold text-gray-900">
                     Create Cluster
                 </h3>
+                <h5 class="text-sm font-medium text-gray-900">
+                    Clustor Supply : 69
+                </h5>
             </div>
 
             <form action="#">

@@ -3,6 +3,7 @@ import List from './List';
 import Flash from './Flash';
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Create from './Create';
+import Clustor from './Clustor';
 
 function Navigation() {
 
@@ -146,7 +147,7 @@ function Navigation() {
           </div>
           { browse ? <List /> : ""}
           { create ? <Create /> : ""}
-          { flash ? <Flash /> : ""}
+          { flash ? <Clustor /> : ""}
         </div>
         
       </div>
