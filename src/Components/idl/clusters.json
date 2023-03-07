@@ -1,0 +1,488 @@
+{
+  "version": "0.1.0",
+  "name": "clusters",
+  "instructions": [
+    {
+      "name": "createCluster",
+      "accounts": [
+        {
+          "name": "cluster",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "clusterMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "t1",
+          "type": "publicKey"
+        },
+        {
+          "name": "t2",
+          "type": "publicKey"
+        },
+        {
+          "name": "t3",
+          "type": "publicKey"
+        },
+        {
+          "name": "amt1",
+          "type": "u64"
+        },
+        {
+          "name": "amt2",
+          "type": "u64"
+        },
+        {
+          "name": "amt3",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initCluster",
+      "accounts": [
+        {
+          "name": "cluster",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "mintOne",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintTwo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintThree",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintOneAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintTwoAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintThreeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initClusterTokenAccount",
+      "accounts": [
+        {
+          "name": "cluster",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "clusterToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterTokenAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "issueCluster",
+      "accounts": [
+        {
+          "name": "cluster",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "issuerOne",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "issuerTwo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "issuerThree",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintOne",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintTwo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintThree",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterOne",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterTwo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterThree",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amt",
+          "type": "u64"
+        },
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "redeemCluster",
+      "accounts": [
+        {
+          "name": "cluster",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "mintOne",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintTwo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintThree",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterOne",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterTwo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterThree",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "redeemerOne",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "redeemerTwo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "redeemerThree",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clusterTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amt",
+          "type": "u64"
+        },
+        {
+          "name": "bumpOne",
+          "type": "u8"
+        },
+        {
+          "name": "bumpTwo",
+          "type": "u8"
+        },
+        {
+          "name": "bumpThree",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "executeFlash",
+      "accounts": [
+        {
+          "name": "cluster",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "flash",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "clusterTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "flashTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "flashProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amt",
+          "type": "u64"
+        },
+        {
+          "name": "bumpOne",
+          "type": "u8"
+        },
+        {
+          "name": "bumpTwo",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Cluster",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "clusterMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "clusterName",
+            "type": "string"
+          },
+          {
+            "name": "clusterSymbol",
+            "type": "string"
+          },
+          {
+            "name": "tokenOne",
+            "type": "publicKey"
+          },
+          {
+            "name": "t1amt",
+            "type": "u64"
+          },
+          {
+            "name": "tokenTwo",
+            "type": "publicKey"
+          },
+          {
+            "name": "t2amt",
+            "type": "u64"
+          },
+          {
+            "name": "tokenThree",
+            "type": "publicKey"
+          },
+          {
+            "name": "t3amt",
+            "type": "u64"
+          },
+          {
+            "name": "clusterSupply",
+            "type": "u64"
+          },
+          {
+            "name": "inited",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InitError",
+      "msg": "The Cluster is yet to be inited"
+    },
+    {
+      "code": 6001,
+      "name": "AlreadyInited",
+      "msg": "The Cluster is already inited"
+    }
+  ],
+  "metadata": {
+    "address": "CLR2boxd8sn2XnPM5vfEsdhDiUcvCaCuBg3zSzffYMe4"
+  }
+}

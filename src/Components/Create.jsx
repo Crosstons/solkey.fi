@@ -17,7 +17,7 @@ function Create() {
                     Create Cluster
                 </h3>
                 <h5 class="text-sm font-medium text-gray-900">
-                    Clustor Supply : 69
+                    Cluster Supply : 69
                 </h5>
             </div>
 
