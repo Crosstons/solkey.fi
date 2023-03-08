@@ -1,17 +1,59 @@
-import React from 'react'
+import { useAnchorWallet } from '@solana/wallet-adapter-react';
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
+import * as anchor from "@project-serum/anchor";
+import { getClustersOnChain } from './backend/chain-calls';
 
 function Clustor() {
+
+  const wallet = useAnchorWallet();
+
+  const {address} = useParams();
+  const [loading, setLoading] = useState(true);
+  const [clusterStatus, setClusterStatus] = useState(false);
+  const [amount, setAmount] = useState(1);
+  const [clustorStatus, setClustorStatus] = useState(false);
+  const [clustorName, setClustorName] = useState("");
+  const [clustorSupply, setClustorSupply] = useState(0);
+  const [tokenKeyOne, setTokenKeyOne] = useState(null);
+  const [tokenKeyTwo, setTokenKeyTwo] = useState(null);
+  const [tokenKeyThree, setTokenKeyThree] = useState(null);
+  const [tokenOneAmt, setTokenOneAmt] = useState(0);
+  const [tokenTwoAmt, setTokenTwoAmt] = useState(0);
+  const [tokenThreeAmt, setTokenThreeAmt] = useState(0);
+
+  useEffect(() => {
+    (async () => {
+      const i = await getClustersOnChain(wallet);
+      let x = i.find(el => el.publicKey.toBase58() === address);
+      console.log(x);
+      setClustorStatus(x.account.inited);
+      setClustorName(x.account.clusterName);
+      setClustorSupply(x.account.clusterSupply.toNumber());
+      setTokenKeyOne(new anchor.web3.PublicKey(x.account.tokenOne.toBase58()));
+      setTokenKeyTwo(new anchor.web3.PublicKey(x.account.tokenTwo.toBase58()));
+      setTokenKeyThree(new anchor.web3.PublicKey(x.account.tokenThree.toBase58()));
+      setTokenOneAmt(x.account.t1Amt.toNumber());
+      setTokenTwoAmt(x.account.t2Amt.toNumber());
+      setTokenThreeAmt(x.account.t3Amt.toNumber());
+      setLoading(false);
+    })();
+  }, []);
+
   return (
     <div>
-
-
-<div id="defaultModal" tabindex="-1" aria-hidden="true" class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    <div id="defaultModal" tabindex="-1" aria-hidden="true" class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
         <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
             <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5">
+              { clusterStatus ? 
                 <h3 class="text-lg font-semibold text-gray-900">
-                  Cluster Name Supply : 69
+                  {clustorName}
                 </h3>
+              : 
+              <button className="py-2.5 px-5 mr-2 text-sm font-medium text-gray-900 bg-[#ffffff] rounded-lg border border-[#e2e8f0] hover:bg-[#f1f5f9] hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-[#4b5563] dark:hover:text-[#ffffff] dark:hover:bg-[#374151] inline-flex items-center">{loading ? "Loading...":"Initialize"}
+              </button>
+              }
             </div>
 
             <form action="#">

@@ -7,6 +7,7 @@ import { useMemo } from 'react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Clustor from './Components/Clustor';
 import './App.css';
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -18,7 +19,8 @@ function App() {
     <Context>
       <Router>
         <Routes>
-        <Route path='/' element={<Content />} />
+          <Route path='/' element={<Content />} />
+          <Route path="/clusters/:address/" element={<Clustor />} />
         </Routes>
       </Router>
     </Context>

@@ -11,7 +11,7 @@ function Flash() {
           
             <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Flash Loan
+                    Loan Execution Form
                 </h3>
             </div>
             <form action="#">
