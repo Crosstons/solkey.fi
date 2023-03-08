@@ -14,11 +14,8 @@ function Create() {
 
             <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Create Cluster
+                    Creation Form
                 </h3>
-                <h5 class="text-sm font-medium text-gray-900">
-                    Clustor Supply : 69
-                </h5>
             </div>
 
             <form action="#">

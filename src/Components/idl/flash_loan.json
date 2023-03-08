@@ -1,0 +1,65 @@
+{
+  "version": "0.1.0",
+  "name": "flash_loan",
+  "instructions": [
+    {
+      "name": "onFlash",
+      "accounts": [
+        {
+          "name": "flashAccount",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init",
+      "accounts": [
+        {
+          "name": "flash",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Flash",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "tokenMint",
+            "type": "publicKey"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "HyCwgwM8oEscef5NpE7VnMmkTDxu6wsUSog43CKPfmq8"
+  }
+}
