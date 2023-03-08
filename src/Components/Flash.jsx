@@ -69,7 +69,7 @@ function Flash() {
                     <div>
                         <label for="category" class="block mb-2 text-sm font-medium text-gray-900">Cluster</label>
                         <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" onChange={(e) => setAddress(e.target.value)}>
-                            <option defaultValue disabled>
+                            <option defaultValue disabled selected>
                             Select Cluster
                             </option>
                             {
