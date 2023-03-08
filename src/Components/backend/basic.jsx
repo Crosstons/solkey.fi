@@ -19,11 +19,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const getClusters = async () => {
-    let output = [{}];
+    let output = [];
     const querySnapshot = await getDocs(collection(db, "clusters"));
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-      output.push(doc.data())
+      output.push(doc.data());
     });
     return output;
 }
