@@ -433,7 +433,7 @@ export const acceptOffer = async(wallet, offer_program, seller, mint, amount) =>
   const temp = JSON.parse(JSON.stringify(marketplace));
   const marketplace_program = new anchor.Program(temp, temp.metadata.address, provider);  
 
-  const buyer_tokens = await getAssociatedTokenAddress(mint, provider.wallet.publicKey);
+  const buyer_tokens = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mint, provider.wallet.publicKey);
 
   const [offerTokens, offerTokensBump] = anchor.web3.PublicKey.findProgramAddressSync(
     [offer_program.toBuffer(),
@@ -451,7 +451,7 @@ export const acceptOffer = async(wallet, offer_program, seller, mint, amount) =>
       seller : seller,
       offerTokens : offerTokens,
       mint : mint,
-      buyerTokens : buyer_tokens,
+      buyerTokens : buyer_tokens.address,
       tokenProgram : TOKEN_PROGRAM_ID,
       systemProgram : anchor.web3.SystemProgram.programId,        
     })
