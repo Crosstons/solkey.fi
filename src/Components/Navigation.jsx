@@ -3,6 +3,7 @@ import List from './List';
 import Flash from './Flash';
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Create from './Create';
+import Create2 from './Create2';
 import Clustor from './Clustor';
 import Offers from './Offers';
 
@@ -12,12 +13,14 @@ function Navigation() {
    const [create, setCreate] = useState(false);
    const [flash, setFlash] = useState(false);
    const [offers, setOffers] = useState(false);
+   const [createOffer, setCreateOffer] = useState(false);
 
    const onBrowse = () => {
       setBrowse(true);
       setCreate(false);
       setFlash(false);
       setOffers(false);
+      setCreateOffer(false);
    }
 
    const onCreate = () => {
@@ -25,6 +28,7 @@ function Navigation() {
       setCreate(true);
       setFlash(false);
       setOffers(false);
+      setCreateOffer(false);
    }
 
    const onFlash = () => {
@@ -32,13 +36,23 @@ function Navigation() {
       setCreate(false);
       setFlash(true);
       setOffers(false);
+      setCreateOffer(false);
    }
 
    const onOffers = () => {
       setBrowse(false);
       setCreate(false);
       setFlash(false);
-      setOffers(true);      
+      setOffers(true); 
+      setCreateOffer(false);     
+   }
+
+   const onCreateOffers = () => {
+      setBrowse(false);
+      setCreate(false);
+      setFlash(false);
+      setOffers(false); 
+      setCreateOffer(true);        
    }
 
   return (
@@ -85,18 +99,18 @@ function Navigation() {
                      <span class=" ml-3 whitespace-nowrap">Offers</span>
                   </a>
                </li>
+               <li>
+                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-purple-100" onClick={onCreateOffers}>
+                     <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
+                     <span class="ml-3">Create Offer</span>
+                  </a>
+               </li>
             </ul>
             <ul class="pt-4 mt-4 space-y-2 border-t border-gray-200">
                <li>
                   <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-purple-100 ">
                      <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" focusable="false" data-prefix="fas" data-icon="gem" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M378.7 32H133.3L256 182.7L378.7 32zM512 192l-107.4-141.3L289.6 192H512zM107.4 50.67L0 192h222.4L107.4 50.67zM244.3 474.9C247.3 478.2 251.6 480 256 480s8.653-1.828 11.67-5.062L510.6 224H1.365L244.3 474.9z"></path></svg>
                      <span class="ml-4">Ovah</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-purple-100">
-                     <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
-                     <span class="ml-3">Ovah</span>
                   </a>
                </li>
                <li>
@@ -131,6 +145,7 @@ function Navigation() {
                   {create ? "Create Cluster" : ""}
                   {flash ? "Flash Loan" : ""}
                   {offers ? "Marketplace" : ""}
+                  {createOffer ? "Create Offer" : ""}
               </h1>
             </div>
             <div class="flex items-center">
@@ -150,6 +165,7 @@ function Navigation() {
           { create ? <Create /> : ""}
           { flash ? <Flash /> : ""}
           { offers ? <Offers /> : ""}
+          { createOffer ? <Create2 /> : ""}
         </div>
         
       </div>

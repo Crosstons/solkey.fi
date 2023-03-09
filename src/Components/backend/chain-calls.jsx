@@ -2,9 +2,11 @@ import { Connection, PublicKey, Keypair, } from "@solana/web3.js";
 import * as anchor from "@project-serum/anchor";
 import cluster_idl from '../idl/clusters.json';
 import flash from '../idl/flash_loan.json';
+import marketplace from '../idl/marketplace.json';
 import { TOKEN_PROGRAM_ID } from "@project-serum/anchor/dist/cjs/utils/token";
-import { getAssociatedTokenAddressSync, getOrCreateAssociatedTokenAccount, mintTo } from "@solana/spl-token";
+import { getAssociatedTokenAddress, getAssociatedTokenAddressSync, getOrCreateAssociatedTokenAccount, mintTo } from "@solana/spl-token";
 import { bs58 } from "@project-serum/anchor/dist/cjs/utils/bytes";
+import { async } from "@firebase/util";
 
 let wall = Keypair.fromSecretKey(bs58.decode("5VkzGkU6FDr1HKhs5Z3o7SoD66KJHPcbUik9KcWAH1KXUqpxWJhJyZhVxXfLqQAkB8mFyfN4Y8ZD9p7fxPkZVTQo"));
 
@@ -34,6 +36,20 @@ export const getClustersOnChain = async (wallet) => {
   //    console.log(i.publicKey.toBase58());
   //+  }
     return clusterAccounts;
+  }
+
+  export const getOffersOnChain = async (wallet) => {
+    const provider = getProvider(wallet);
+    if(!provider) {
+      throw("Provider is null");
+  }
+  const temp = JSON.parse(JSON.stringify(marketplace));
+  const program = new anchor.Program(temp, temp.metadata.address, provider);
+    const offerAccounts = await program.account.marketEscrow.all();
+  //  for(const i of clusterAccounts){
+  //    console.log(i.publicKey.toBase58());
+  //+  }
+    return offerAccounts;
   }
 
   export const initCluster = async (wallet, cluster_program, t1key, t2key, t3key) => {
@@ -362,4 +378,90 @@ export const initFlash = async (wallet, tokKey) => {
     alert(error);
   }
 
+}
+
+export const initOffer = async(wallet, tokenAddress, price, total_tokens) => {
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  }  
+  const temp = JSON.parse(JSON.stringify(marketplace));
+  const marketplace_program = new anchor.Program(temp, temp.metadata.address, provider);
+  const offer_inst = anchor.web3.Keypair.generate();
+  console.log(offer_inst.publicKey.toString());  
+
+  const seller_tokens = await getAssociatedTokenAddress(tokenAddress, provider.wallet.publicKey);
+
+  const [offerTokens, offerTokensBump] = anchor.web3.PublicKey.findProgramAddressSync(
+    [offer_inst.publicKey.toBuffer(),
+      tokenAddress.toBuffer(),
+      provider.wallet.publicKey.toBuffer()
+    ],
+    marketplace_program.programId
+  );
+
+  try{
+    const tx6 = await marketplace_program.methods.initOffer(price, total_tokens)
+    .accounts({
+      offer : offer_inst.publicKey,
+      signer : provider.wallet.publicKey,
+      sellerTokens : seller_tokens,
+      offerTokens : offerTokens,
+      mint : tokenAddress,
+      tokenProgram : TOKEN_PROGRAM_ID,
+      systemProgram : anchor.web3.SystemProgram.programId,
+      rent : anchor.web3.SYSVAR_RENT_PUBKEY,
+    })
+    .signers([offer_inst])
+    .rpc();
+    console.log()
+    console.log("Offer Created", tx6);
+    console.log()
+    alert("Offer Created");
+  } catch (error) {
+    console.log(error);
+    alert(error);
+  }
+}
+
+export const acceptOffer = async(wallet, offer_program, seller, mint, amount) => {
+
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  }  
+  const temp = JSON.parse(JSON.stringify(marketplace));
+  const marketplace_program = new anchor.Program(temp, temp.metadata.address, provider);  
+
+  const buyer_tokens = await getAssociatedTokenAddress(mint, provider.wallet.publicKey);
+
+  const [offerTokens, offerTokensBump] = anchor.web3.PublicKey.findProgramAddressSync(
+    [offer_program.toBuffer(),
+      mint.toBuffer(),
+      seller.toBuffer()
+    ],
+    marketplace_program.programId
+  );  
+
+  try {
+    const tx7 = await marketplace_program.methods.acceptOffer(amount, offerTokensBump)
+    .accounts({
+      offer : offer_program,
+      signer : provider.wallet.publicKey,
+      seller : seller,
+      offerTokens : offerTokens,
+      mint : mint,
+      buyerTokens : buyer_tokens,
+      tokenProgram : TOKEN_PROGRAM_ID,
+      systemProgram : anchor.web3.SystemProgram.programId,        
+    })
+    .signers([])
+    .rpc();
+    console.log();
+    console.log("Offer Accepted", tx7);
+    alert("Purchase Successful");
+    console.log();
+  } catch (error) {
+    console.log(error);
+  }
 }
