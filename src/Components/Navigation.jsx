@@ -6,6 +6,7 @@ import Create from './Create';
 import Create2 from './Create2';
 import Clustor from './Clustor';
 import Offers from './Offers';
+import Vault from './Vault';
 
 function Navigation() {
 
