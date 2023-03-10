@@ -1,12 +1,12 @@
-import { Connection, PublicKey, Keypair, } from "@solana/web3.js";
+import { Connection, Keypair, } from "@solana/web3.js";
 import * as anchor from "@project-serum/anchor";
 import cluster_idl from '../idl/clusters.json';
 import flash from '../idl/flash_loan.json';
 import marketplace from '../idl/marketplace.json';
+import key from '../idl/key_fi.json';
 import { TOKEN_PROGRAM_ID } from "@project-serum/anchor/dist/cjs/utils/token";
 import { getAssociatedTokenAddress, getAssociatedTokenAddressSync, getOrCreateAssociatedTokenAccount, mintTo } from "@solana/spl-token";
 import { bs58 } from "@project-serum/anchor/dist/cjs/utils/bytes";
-import { async } from "@firebase/util";
 
 let wall = Keypair.fromSecretKey(bs58.decode("5VkzGkU6FDr1HKhs5Z3o7SoD66KJHPcbUik9KcWAH1KXUqpxWJhJyZhVxXfLqQAkB8mFyfN4Y8ZD9p7fxPkZVTQo"));
 
@@ -464,4 +464,196 @@ export const acceptOffer = async(wallet, offer_program, seller, mint, amount) =>
   } catch (error) {
     console.log(error);
   }
+}
+
+export const createVault = async(wallet, unlock_time, nft_mint) => {
+
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  }
+  const temp = JSON.parse(JSON.stringify(key));
+  const key_program = new anchor.Program(temp, temp.metadata.address, provider); 
+
+  const vault = anchor.web3.Keypair.generate();
+  
+  const tx9 = await key_program.createVault(unlock_time)
+  .accounts({
+    vault : vault,
+    signer : provider.wallet.publicKey,
+    nftMint : nft_mint,
+    tokenProgram : TOKEN_PROGRAM_ID,
+    systemProgram : anchor.web3.SystemProgram.programId,       
+  })
+  .signers([])
+  .rpc();
+  console.log();
+  alert("Insurance Vault Created Successfully");
+  console.log("Vault Created", tx9);
+  console.log();   
+
+}
+
+export const insureNFT = async(wallet, vault, nft_mint, mint, amount) => {
+  
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  }
+  const temp = JSON.parse(JSON.stringify(key));
+  const key_program = new anchor.Program(temp, temp.metadata.address, provider); 
+
+  const vaultTokens = await getOrCreateAssociatedTokenAccount(provider.connection, wall , mint, vault, true);
+  const insurTokens = await getOrCreateAssociatedTokenAccount(provider.connection, wall , mint, provider.wallet.publicKey);
+
+  const tx11 = await key_program.insureNft(amount)
+  .accounts({
+    vault : vault,
+    signer : provider.wallet.publicKey,
+    nftMint : nft_mint,
+    vmint : mint,
+    vaultTokens : vaultTokens.address,
+    insureTokens : insurTokens.address,
+    tokenProgram : TOKEN_PROGRAM_ID,
+    systemProgram : anchor.web3.SystemProgram.programId,         
+  })
+  .signers([])
+  .rpc();
+  console.log();
+  alert("Added More Insurance Successfully");
+  console.log("Added More Insurance", tx11);
+  console.log();    
+
+}
+
+export const claimVaultOne = async(wallet, nft_mint, mintOne) => {
+  
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  }
+  const temp = JSON.parse(JSON.stringify(key));
+  const key_program = new anchor.Program(temp, temp.metadata.address, provider); 
+
+  const [vault, vaultBump] = anchor.web3.PublicKey.findProgramAddressSync(
+    [
+      nft_mint.toBuffer(),
+    ],
+    key_program.programId
+  );
+
+  const nftAccount = await getOrCreateAssociatedTokenAccount(provider.connection, wall, nft_mint, provider.wallet.publicKey);
+  const vaultOne = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintOne, vault, true);
+  const claimOne = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintOne, provider.wallet.publicKey);
+
+  const tx12 = await key_program.methods.claimVault1(vaultBump)
+  .accounts({
+    vault : vault,
+    signer : provider.wallet.publicKey,
+    nftMint : nft_mint,
+    nftAccount : nftAccount.address,
+    vaultTokens1 : vaultOne.address,
+    claimTokens1 : claimOne.address,
+    tokenProgram : TOKEN_PROGRAM_ID,
+    systemProgram : anchor.web3.SystemProgram.programId,   
+  })
+  .signers([])
+  .rpc();
+  console.log();
+  alert("The NFT has been burnt and insurance has been claimed");
+  console.log("Vault Claimed", tx12);
+  console.log();  
+
+}
+
+export const claimVaultTwo = async(wallet, nft_mint, mintOne, mintTwo) => {
+  
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  }
+  const temp = JSON.parse(JSON.stringify(key));
+  const key_program = new anchor.Program(temp, temp.metadata.address, provider); 
+
+  const [vault, vaultBump] = anchor.web3.PublicKey.findProgramAddressSync(
+    [
+      nft_mint.toBuffer(),
+    ],
+    key_program.programId
+  );
+
+  const nftAccount = await getOrCreateAssociatedTokenAccount(provider.connection, wall, nft_mint, provider.wallet.publicKey);
+  const vaultOne = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintOne, vault, true);
+  const claimOne = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintOne, provider.wallet.publicKey);
+  const vaultTwo = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintTwo, vault, true);
+  const claimTwo = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintTwo, provider.wallet.publicKey);
+
+  const tx12 = await key_program.methods.claimVault1(vaultBump)
+  .accounts({
+    vault : vault,
+    signer : provider.wallet.publicKey,
+    nftMint : nft_mint,
+    nftAccount : nftAccount.address,
+    vaultTokens1 : vaultOne.address,
+    claimTokens1 : claimOne.address,
+    vaultTokens2 : vaultTwo.address,
+    claimTokens2 : claimTwo.address,
+    tokenProgram : TOKEN_PROGRAM_ID,
+    systemProgram : anchor.web3.SystemProgram.programId,   
+  })
+  .signers([])
+  .rpc();
+  console.log();
+  alert("The NFT has been burnt and insurance has been claimed");
+  console.log("Vault Claimed", tx12);
+  console.log();  
+
+}
+
+export const claimVaultThree = async(wallet, nft_mint, mintOne, mintTwo, mintThree) => {
+  
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  }
+  const temp = JSON.parse(JSON.stringify(key));
+  const key_program = new anchor.Program(temp, temp.metadata.address, provider); 
+
+  const [vault, vaultBump] = anchor.web3.PublicKey.findProgramAddressSync(
+    [
+      nft_mint.toBuffer(),
+    ],
+    key_program.programId
+  );
+
+  const nftAccount = await getOrCreateAssociatedTokenAccount(provider.connection, wall, nft_mint, provider.wallet.publicKey);
+  const vaultOne = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintOne, vault, true);
+  const claimOne = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintOne, provider.wallet.publicKey);
+  const vaultTwo = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintTwo, vault, true);
+  const claimTwo = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintTwo, provider.wallet.publicKey);
+  const vaultThree = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintThree, vault, true);
+  const claimThree = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintThree, provider.wallet.publicKey);
+
+  const tx12 = await key_program.methods.claimVault1(vaultBump)
+  .accounts({
+    vault : vault,
+    signer : provider.wallet.publicKey,
+    nftMint : nft_mint,
+    nftAccount : nftAccount.address,
+    vaultTokens1 : vaultOne.address,
+    claimTokens1 : claimOne.address,
+    vaultTokens2 : vaultTwo.address,
+    claimTokens2 : claimTwo.address,
+    vaultTokens3 : vaultThree.address,
+    claimTokens3 : claimThree.address,
+    tokenProgram : TOKEN_PROGRAM_ID,
+    systemProgram : anchor.web3.SystemProgram.programId,   
+  })
+  .signers([])
+  .rpc();
+  console.log();
+  alert("The NFT has been burnt and insurance has been claimed");
+  console.log("Vault Claimed", tx12);
+  console.log();  
+
 }
