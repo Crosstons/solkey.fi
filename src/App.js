@@ -8,6 +8,8 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Clustor from './Components/Clustor';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Vault from './Components/Vault';
 import './App.css';
 require('@solana/wallet-adapter-react-ui/styles.css');
@@ -18,6 +20,7 @@ function App() {
 
   return (
     <Context>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>      
       <Router>
         <Routes>
           <Route path='/' element={<Content />} />
@@ -25,6 +28,7 @@ function App() {
           <Route path='/vaults/:address/' element={<Vault />} />
         </Routes>
       </Router>
+      </LocalizationProvider>
     </Context>
   );
 }

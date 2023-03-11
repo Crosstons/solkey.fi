@@ -484,9 +484,14 @@ export const createVault = async(wallet, unlock_time, nft_mint) => {
   const temp = JSON.parse(JSON.stringify(key));
   const key_program = new anchor.Program(temp, temp.metadata.address, provider); 
 
-  const vault = anchor.web3.Keypair.generate();
+  const [vault, vaultBump] = anchor.web3.PublicKey.findProgramAddressSync(
+    [
+      nft_mint.toBuffer(),
+    ],
+    key_program.programId
+  );
   
-  const tx9 = await key_program.createVault(unlock_time)
+  const tx9 = await key_program.methods.createVault(unlock_time)
   .accounts({
     vault : vault,
     signer : provider.wallet.publicKey,
@@ -515,7 +520,7 @@ export const insureNFT = async(wallet, vault, nft_mint, mint, amount) => {
   const vaultTokens = await getOrCreateAssociatedTokenAccount(provider.connection, wall , mint, vault, true);
   const insurTokens = await getOrCreateAssociatedTokenAccount(provider.connection, wall , mint, provider.wallet.publicKey);
 
-  const tx11 = await key_program.insureNft(amount)
+  const tx11 = await key_program.methods.insureNft(amount)
   .accounts({
     vault : vault,
     signer : provider.wallet.publicKey,
@@ -597,7 +602,7 @@ export const claimVaultTwo = async(wallet, nft_mint, mintOne, mintTwo) => {
   const vaultTwo = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintTwo, vault, true);
   const claimTwo = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintTwo, provider.wallet.publicKey);
 
-  const tx12 = await key_program.methods.claimVault1(vaultBump)
+  const tx12 = await key_program.methods.claimVault2(vaultBump)
   .accounts({
     vault : vault,
     signer : provider.wallet.publicKey,
@@ -643,7 +648,7 @@ export const claimVaultThree = async(wallet, nft_mint, mintOne, mintTwo, mintThr
   const vaultThree = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintThree, vault, true);
   const claimThree = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mintThree, provider.wallet.publicKey);
 
-  const tx12 = await key_program.methods.claimVault1(vaultBump)
+  const tx12 = await key_program.methods.claimVault3(vaultBump)
   .accounts({
     vault : vault,
     signer : provider.wallet.publicKey,
