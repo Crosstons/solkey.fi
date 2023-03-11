@@ -11,6 +11,7 @@ import Clustor from './Components/Clustor';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Vault from './Components/Vault';
+import Splash from './Components/Splash';
 import './App.css';
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -23,7 +24,8 @@ function App() {
       <LocalizationProvider dateAdapter={AdapterDayjs}>      
       <Router>
         <Routes>
-          <Route path='/' element={<Content />} />
+          <Route path='/' element={<Splash />} />
+          <Route path='/home/' element={<Content />} />
           <Route path="/clusters/:address/" element={<Clustor />} />
           <Route path='/vaults/:address/' element={<Vault />} />
         </Routes>
