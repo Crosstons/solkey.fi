@@ -7,6 +7,7 @@ import key from '../idl/key_fi.json';
 import { TOKEN_PROGRAM_ID } from "@project-serum/anchor/dist/cjs/utils/token";
 import { getAssociatedTokenAddress, getAssociatedTokenAddressSync, getOrCreateAssociatedTokenAccount, mintTo } from "@solana/spl-token";
 import { bs58 } from "@project-serum/anchor/dist/cjs/utils/bytes";
+import { async } from "@firebase/util";
 
 let wall = Keypair.fromSecretKey(bs58.decode("5VkzGkU6FDr1HKhs5Z3o7SoD66KJHPcbUik9KcWAH1KXUqpxWJhJyZhVxXfLqQAkB8mFyfN4Y8ZD9p7fxPkZVTQo"));
 
@@ -42,14 +43,22 @@ export const getClustersOnChain = async (wallet) => {
     const provider = getProvider(wallet);
     if(!provider) {
       throw("Provider is null");
-  }
+    }
   const temp = JSON.parse(JSON.stringify(marketplace));
   const program = new anchor.Program(temp, temp.metadata.address, provider);
     const offerAccounts = await program.account.marketEscrow.all();
-  //  for(const i of clusterAccounts){
-  //    console.log(i.publicKey.toBase58());
-  //+  }
     return offerAccounts;
+  }
+
+  export const getVaultsOnChain = async (wallet) => {
+    const provider = getProvider(wallet);
+    if(!provider) {
+      throw("Provider is null");
+    }  
+    const temp = JSON.parse(JSON.stringify(key));
+    const program = new anchor.Program(temp, temp.metadata.address, provider);
+    const vaultAccounts = await program.account.vault.all();
+    return vaultAccounts;
   }
 
   export const initCluster = async (wallet, cluster_program, t1key, t2key, t3key) => {
