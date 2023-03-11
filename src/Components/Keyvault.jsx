@@ -15,6 +15,7 @@ function Keyvault() {
 
   const [ListTitles, setList] = useState([]);
   const [holdings, setHoldings] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const wallet = useAnchorWallet();
   const connection = new Connection(clusterApiUrl("devnet"));
@@ -70,6 +71,7 @@ function Keyvault() {
         }
         setList(temp);
         setHoldings(temp1);
+        setLoading(false);
       })();
     }, []);
 
@@ -77,7 +79,7 @@ function Keyvault() {
     <div>
         <section class="text-gray-600 body-font">
   <div class="container px-5 py-12 mx-auto">
-  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-10">My NFTs</h1>
+  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-10">{loading ? "Loading..." : "My NFTs"}</h1>
     <div class="flex flex-wrap -m-4">
       { holdings.map((token) => (
       <div class="lg:w-1/5 md:w-1/2 p-4 w-full" key={token.address}>
