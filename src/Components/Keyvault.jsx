@@ -87,7 +87,7 @@ function Keyvault() {
         
         <div class="lg:w-1/5 md:w-1/2 p-4 w-full" key={vault.vault}>
           <a class="block relative h-48 rounded overflow-hidden">
-            <img class="object-cover object-center w-full h-full block" href={fetchURI(vault.nft)}/>
+            <img class="object-cover object-center w-full h-full" href={fetchURI(vault.nft)}/>
           </a>
           <div class="mt-4">
             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{vault.vault}</h3>
