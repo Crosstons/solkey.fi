@@ -8,6 +8,7 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Clustor from './Components/Clustor';
+import Vault from './Components/Vault';
 import './App.css';
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Content />} />
           <Route path="/clusters/:address/" element={<Clustor />} />
+          <Route path='/vaults/:address/' element={<Vault />} />
         </Routes>
       </Router>
     </Context>

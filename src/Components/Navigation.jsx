@@ -7,6 +7,7 @@ import Create2 from './Create2';
 import Clustor from './Clustor';
 import Offers from './Offers';
 import Vault from './Vault';
+import Keyvault from './Keyvault';
 
 function Navigation() {
 
@@ -15,6 +16,7 @@ function Navigation() {
    const [flash, setFlash] = useState(false);
    const [offers, setOffers] = useState(false);
    const [createOffer, setCreateOffer] = useState(false);
+   const [key, setKey] = useState(false);
 
    const onBrowse = () => {
       setBrowse(true);
@@ -22,6 +24,7 @@ function Navigation() {
       setFlash(false);
       setOffers(false);
       setCreateOffer(false);
+      setKey(false);
    }
 
    const onCreate = () => {
@@ -30,6 +33,7 @@ function Navigation() {
       setFlash(false);
       setOffers(false);
       setCreateOffer(false);
+      setKey(false);
    }
 
    const onFlash = () => {
@@ -38,6 +42,7 @@ function Navigation() {
       setFlash(true);
       setOffers(false);
       setCreateOffer(false);
+      setKey(false);
    }
 
    const onOffers = () => {
@@ -45,7 +50,8 @@ function Navigation() {
       setCreate(false);
       setFlash(false);
       setOffers(true); 
-      setCreateOffer(false);     
+      setCreateOffer(false);
+      setKey(false);     
    }
 
    const onCreateOffers = () => {
@@ -53,7 +59,17 @@ function Navigation() {
       setCreate(false);
       setFlash(false);
       setOffers(false); 
-      setCreateOffer(true);        
+      setCreateOffer(true);  
+      setKey(false);      
+   }
+
+   const onKey = () => {
+      setBrowse(false);
+      setCreate(false);
+      setFlash(false);
+      setOffers(false); 
+      setCreateOffer(false);  
+      setKey(true);        
    }
 
   return (
@@ -115,9 +131,9 @@ function Navigation() {
                   </a>
                </li>
                <li>
-                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-purple-100">
+                  <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-purple-100" onClick={onKey}>
                      <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
-                     <span class="ml-3">Ovah</span>
+                     <span class="ml-3">Key</span>
                   </a>
                </li>
                <li>
@@ -147,6 +163,7 @@ function Navigation() {
                   {flash ? "Flash Loan" : ""}
                   {offers ? "Marketplace" : ""}
                   {createOffer ? "Create Offer" : ""}
+                  {key ? "NFT Keysurance" : ""}
               </h1>
             </div>
             <div class="flex items-center">
@@ -167,6 +184,7 @@ function Navigation() {
           { flash ? <Flash /> : ""}
           { offers ? <Offers /> : ""}
           { createOffer ? <Create2 /> : ""}
+          { key ? <Keyvault /> : "" }
         </div>
         
       </div>
