@@ -314,7 +314,7 @@ function Vault() {
         </div> <br />
         {inited && vmint.length > 0 ? 
         <div>
-        <span className='text-s'> By claiming, you are burning the NFT and obtaining the backed tokens in your wallet, choose wisely* </span>
+        <span className='text-base leading-relaxed mt-2 text-center text-s'> By claiming, you are burning the NFT and obtaining the backed tokens in your wallet, choose wisely* </span>
         <button onClick={onClaim} class="flex mx-auto mt-3 text-white bg-purple-700 border-0 py-2 px-5 focus:outline-none hover:bg-purple-800 rounded">{loading ? "Loading.." : "Claim"}</button>
         </div>
         : ""}
