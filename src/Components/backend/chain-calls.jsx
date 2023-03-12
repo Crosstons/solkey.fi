@@ -671,3 +671,12 @@ export const claimVaultThree = async(wallet, nft_mint, mintOne, mintTwo, mintThr
   console.log();  
 
 }
+
+export const getTokenBalance = async(wallet, owner, mint) => {
+  const provider = getProvider(wallet);
+  if(!provider) {
+    throw("Provider is null");
+  } 
+  const tok = await getOrCreateAssociatedTokenAccount(provider.connection, wall, mint, owner, true);
+  return tok.amount.toString();
+}
