@@ -281,7 +281,12 @@ function Vault() {
 </div>
 
       </div>
-      <img class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={image}/>
+      <div class="sm:w-1/2 mb-10">
+        <div class="lg:w-full rounded-lg h-96 w-full flex justify-center">
+          <img alt="content" class="mt-10 w-full lg:w-3/4 lg:h-auto h-64 object-cover object-center rounded" src={image}/>
+        </div>
+        <button class="flex mx-auto mt-6 text-white bg-purple-700 border-0 py-2 px-5 focus:outline-none hover:bg-purple-800 rounded">Button</button>
+      </div>
       
     </div>
   </div>
