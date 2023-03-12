@@ -9,7 +9,7 @@ import { getVaultsOnChain, insureNFT } from './backend/chain-calls';
 import { createVault } from './backend/chain-calls';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { DateTimePicker } from '@mui/x-date-pickers';
-import { getTokenBalance } from './backend/chain-calls';
+import { getTokenBalance, claimVaultOne, claimVaultTwo, claimVaultThree } from './backend/chain-calls';
 import dayjs from 'dayjs';
 import logo from  '../logo/logo.png';
 import { Link } from 'react-router-dom';
@@ -61,6 +61,31 @@ function Vault() {
         console.log(error);
         alert(error);
     }
+    setLoading(false);
+  }
+
+  const onClaim = async () => {
+    setLoading(true);
+
+    if(vmint.length === 1){
+      try{
+        await claimVaultOne(wallet, new anchor.web3.PublicKey(address), new anchor.web3.PublicKey(vmint[0].addr));
+      }
+      catch(error){console.log(error); alert(error);}
+    }
+    else if(vmint.length === 2){
+      try{
+        await claimVaultTwo(wallet, new anchor.web3.PublicKey(address), new anchor.web3.PublicKey(vmint[0].addr), new anchor.web3.PublicKey(vmint[1].addr));
+      }
+      catch(error){console.log(error); alert(error);}
+    }
+    else if(vmint.length === 3){
+      try{
+        await claimVaultThree(wallet, new anchor.web3.PublicKey(address), new anchor.web3.PublicKey(vmint[0].addr), new anchor.web3.PublicKey(vmint[1].addr), new anchor.web3.PublicKey(vmint[2].addr));
+      }
+      catch(error){console.log(error); alert(error);}      
+    }    
+
     setLoading(false);
   }
 
@@ -219,7 +244,7 @@ function Vault() {
                 <span> Backed By Tokens - </span>
                     {vmint.map((tok) => (
                         <div>
-                        <input type="text" id="disabled-input-2" aria-label="disabled input 2" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" value={tok.addr.slice(0,10) + "..  -  " + tok.amount } disabled readonly/>
+                        <input type="text" id="disabled-input-2" aria-label="disabled input 2" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" value={tok.addr.slice(0,20) + "..  -  " + tok.amount } disabled readonly/>
                         </div>
                     ))}
 
@@ -286,8 +311,13 @@ function Vault() {
       <div class="sm:w-1/2 mb-10">
         <div class="lg:w-full rounded-lg h-96 w-full flex justify-center">
           <img alt="content" class="mt-10 w-full lg:w-3/4 lg:h-auto h-64 object-cover object-center rounded" src={image}/>
+        </div> <br />
+        {inited && vmint.length > 0 ? 
+        <div>
+        <span className='text-s'> By claiming, you are burning the NFT and obtaining the backed tokens in your wallet, choose wisely* </span>
+        <button onClick={onClaim} class="flex mx-auto mt-3 text-white bg-purple-700 border-0 py-2 px-5 focus:outline-none hover:bg-purple-800 rounded">{loading ? "Loading.." : "Claim"}</button>
         </div>
-        <button class="flex mx-auto mt-6 text-white bg-purple-700 border-0 py-2 px-5 focus:outline-none hover:bg-purple-800 rounded">Button</button>
+        : ""}
       </div>
       
     </div>
