@@ -9,6 +9,7 @@ import { getVaultsOnChain, insureNFT } from './backend/chain-calls';
 import { createVault } from './backend/chain-calls';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { DateTimePicker } from '@mui/x-date-pickers';
+import { getTokenBalance } from './backend/chain-calls';
 import dayjs from 'dayjs';
 import logo from  '../logo/logo.png';
 import { Link } from 'react-router-dom';
@@ -78,7 +79,8 @@ function Vault() {
         setVault(found.publicKey.toBase58());
         let temp = [];
         for(const i in found.account.vmints){
-            temp.push({addr : found.account.vmints[i].toBase58()});
+            const amt = await getTokenBalance(wallet, new anchor.web3.PublicKey(found.publicKey.toBase58()), new anchor.web3.PublicKey(found.account.vmints[i].toBase58()));
+            temp.push({addr : found.account.vmints[i].toBase58(), amount : amt});
         }
         setVmint(temp);
       }
@@ -217,7 +219,7 @@ function Vault() {
                 <span> Backed By Tokens - </span>
                     {vmint.map((tok) => (
                         <div>
-                        <input type="text" id="disabled-input-2" aria-label="disabled input 2" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" value={tok.addr} disabled readonly/>
+                        <input type="text" id="disabled-input-2" aria-label="disabled input 2" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" value={tok.addr.slice(0,10) + "..  -  " + tok.amount } disabled readonly/>
                         </div>
                     ))}
 
