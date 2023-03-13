@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Solkey.fi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A project that combines token aggregation, NFT insurance, and flash loans could allow users to pool tokens for flash loans while also insuring NFT assets.
 
-## Available Scripts
+## Team Name - Vanguard
 
-In the project directory, you can run:
+## Why Solkey.fi ?
 
-### `npm start`
+The need for a platform where users can enter multiple wallet addresses to retrieve and analyse their token holdings with respect to time was high.
+So we came up with Harmony Analytics to solve the above mentioned problem with the use of Covalent endpoints and our data manipulation skills.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Important Links - 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Deployed Website - [Solkey.fi]([https://harmony-analytics.vercel.app/](https://solkey-fi-five.vercel.app/)) <br />
+Twitter Account -[Solkey.fi](https://twitter.com/solkey_fi?t=3lZyj-2eOBGrxPRx9n_gTA&s=09)
+Presentation - [PDF](https://drive.google.com/file/d/1OUE8dwIUcBq5E9irHI6RDNJclAvQKmH_/view) <br />
+Problem Statement - [Doc](https://docs.google.com/document/d/1ORWcsoVBJEGMdgtvd-__Evgh22U0J5uV/view) <br />
+Demo Video - [YT](https://www.youtube.com/watch?v=GV47FheKIEI) <br />
 
-### `npm test`
+### Tracks - 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The project is applied for the following tracks - 
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1) [De-Fi](https://github.com/harmony-one/bounties/issues/121) <br />
+2) [University](https://encodeclub.notion.site/ecaa23d0d51743e893073a7a1e487dd2?v=caed3d433ba4492dab24f8699304b3a5&p=154edcf9677d47908fa54fbdc78fdb17&pm=s) <br />
