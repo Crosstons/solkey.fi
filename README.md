@@ -1,25 +1,23 @@
 # Solkey.fi
 
-A project that combines token aggregation, NFT insurance, and flash loans could allow users to pool tokens for flash loans while also insuring NFT assets.
+A DeFi Platform for Solana that does the Token Aggregation, Cluster Marketplace, Offering Flash Loans & NFT insurance at a single place.
 
 ## Team Name - Vanguard
 
-## Why Solkey.fi ?
+### Why Solkey.Fi ?
 
-The need for a platform where users can enter multiple wallet addresses to retrieve and analyse their token holdings with respect to time was high.
-So we came up with Harmony Analytics to solve the above mentioned problem with the use of Covalent endpoints and our data manipulation skills.
+Solkey.fi is inspired from the Set Protocol on Ethereum, but we levelled it up with our flash loans. The lying around token liquidity of a token aggregation platform can be used for providing flash loans and we just accomplished that with our Clusters and Flash Loans. Along with that if you want to buy a Cluster (Multiple Tokens Into One) at a definite price, you can do that too from our Cluster Marketplace. <br />
+Worried about the floor price of your NFTs? What if they were backed by other tokens which act as an insurance for the price of your NFTs. If the price drops below your comfort zone, you can always claim the insurance by burning the NFT and getting the backed tokens into your wallet.
 
 ## Important Links - 
 
-Deployed Website - [Solkey.fi]([https://harmony-analytics.vercel.app/](https://solkey-fi-five.vercel.app/)) <br />
-Twitter Account -[Solkey.fi](https://twitter.com/solkey_fi?t=3lZyj-2eOBGrxPRx9n_gTA&s=09)
-Presentation - [PDF](https://drive.google.com/file/d/1OUE8dwIUcBq5E9irHI6RDNJclAvQKmH_/view) <br />
-Problem Statement - [Doc](https://docs.google.com/document/d/1ORWcsoVBJEGMdgtvd-__Evgh22U0J5uV/view) <br />
-Demo Video - [YT](https://www.youtube.com/watch?v=GV47FheKIEI) <br />
+Deployed Website - [Solkey.fi](https://solkey-fi-five.vercel.app/) <br />
+Twitter Account - [solkey_fi](https://twitter.com/solkey_fi?t=3lZyj-2eOBGrxPRx9n_gTA&s=09) <br />
+Demo Video - [YT](https://youtu.be/IJdeIuaIaFY) <br />
 
 ### Tracks - 
 
 The project is applied for the following tracks - 
 
-1) [De-Fi](https://github.com/harmony-one/bounties/issues/121) <br />
-2) [University](https://encodeclub.notion.site/ecaa23d0d51743e893073a7a1e487dd2?v=caed3d433ba4492dab24f8699304b3a5&p=154edcf9677d47908fa54fbdc78fdb17&pm=s) <br />
+1) De-Fi <br />
+2) University <br />
