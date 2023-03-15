@@ -1,4 +1,5 @@
 # Solkey.fi
+Finalist at Encode × Solana Hackathon'23(Previously known as Clusters)
 
 A DeFi Platform for Solana that does the Token Aggregation, Cluster Marketplace, Offering Flash Loans & NFT insurance at a single place.
 
